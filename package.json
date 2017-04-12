@@ -58,14 +58,5 @@
     "runjs": "run"
   },
   "author": "",
-  "license": "MIT",
-  "babel": {
-    "plugins": [
-      "transform-es2015-modules-commonjs"
-    ],
-    "presets": [
-      "es2016",
-      "es2017"
-    ]
-  }
+  "license": "MIT"
 }

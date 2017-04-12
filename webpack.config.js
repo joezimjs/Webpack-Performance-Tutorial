@@ -16,8 +16,11 @@ let babelOptions = {
 // this, but if you support IE and/or older browsers, you'll need this
 if (buildConfig.compileTarget === 'es5') {
 	babelOptions.plugins.push(['transform-runtime', { helpers: false }])
-	babelOptions.presets.push(['es2015', { modules: false }])
+	babelOptions.presets.unshift(['es2015', { modules: false }])
 }
+
+console.log(babelOptions.presets)
+console.log(babelOptions.plugins)
 
 let config = {
 	entry: { main: './src/main.js' },
@@ -30,19 +33,9 @@ let config = {
 	module: {
 		rules: [
 			{
-				test: /\.(jsx?|vue)$/,
-				exclude: /node_modules/,
-				enforce: 'pre',
-				loader: 'eslint-loader',
-				options: {
-					configFile: './config/.eslintrc'
-				}
-			},
-			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
-				options: babelOptions
+				loader: 'babel-loader'
 			},
 			{
 				test: /\.vue$/,
@@ -77,26 +70,11 @@ let config = {
 		new CleanWebpackPlugin(['dist'], { root: process.cwd() }),
 		new HtmlWebpackPlugin({ template: 'src/index.html' }),
 	],
-	devtool: 'cheap-module-eval-source-map',
+	devtool: false && 'cheap-module-eval-source-map',
 	devServer: {
 		contentBase: 'dist',
 		port: 8080,
 		historyApiFallback: true
-	},
-	performance: {
-		hints: ENV === 'production' ? 'warning' : false
-	},
-	stats: {
-		cached: false,
-		children: false,
-		chunkModules: false,
-		chunkOrigins: false,
-		errorDetails: false,
-		modules: false,
-		publicPath: false,
-		reasons: false,
-		source: false,
-		timings: false
 	}
 }
 
