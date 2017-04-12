@@ -1,8 +1,0 @@
-{
-	"transform": {
-		".*\\.(js?|vue)$": "<rootDir>/config/jest-preprocessor.js"
-	},
-	"testRegex": ".*\\.spec\\.js$",
-	"testEnvironment": "jsdom",
-	"testPathDirs": ["./src"]
-}
