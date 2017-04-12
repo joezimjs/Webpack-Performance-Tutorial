@@ -1,26 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
-const buildConfig = require('./config.js').build
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() || (process.env.NODE_ENV = 'development')
 const isDevServer = process.argv.find(v => v.includes('webpack-dev-server'))
-
-let babelOptions = {
-	presets: [ 'es2016', 'es2017' ],
-	plugins: ['syntax-dynamic-import']
-}
-
-// Many modern browsers have really good support for ES2015, so you may not need
-// this, but if you support IE and/or older browsers, you'll need this
-if (buildConfig.compileTarget === 'es5') {
-	babelOptions.plugins.push(['transform-runtime', { helpers: false }])
-	babelOptions.presets.unshift(['es2015', { modules: false }])
-}
-
-console.log(babelOptions.presets)
-console.log(babelOptions.plugins)
 
 let config = {
 	entry: { main: './src/main.js' },

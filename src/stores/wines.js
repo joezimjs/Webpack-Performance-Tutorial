@@ -8,7 +8,7 @@ function setSource (wine) {
 	try {
 		wine.src = require(`../images/wines/${wine.picture}`)
 	} catch (e) {
-		CONFIG.debug && console.error('Image source file does not exist. Setting without `require`.')
+		console.error('Image source file does not exist. Setting without `require`.')
 		wine.src = `/images/wines/${wine.picture}`
 	}
 }
@@ -43,7 +43,7 @@ export default {
 			if (index >= 0)
 				state.splice(index, 1)
 			else
-				CONFIG.debug && console.error('Could not fine wine with id=', id)
+				console.error('Could not fine wine with id=', id)
 		},
 		setAll (state, wines) {
 			wines.forEach(setSource)
