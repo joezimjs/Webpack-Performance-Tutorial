@@ -1,0 +1,78 @@
+{
+	"SublimeLinter":
+	{
+		"linters":
+		{
+			"eslint":
+			{
+				"args":
+				[
+					"--config",
+					"${project}/config/.eslintrc"
+				]
+			}
+		}
+	},
+	"build_systems":
+	[
+		{
+			"name": "Build Process",
+			"shell_cmd": "npm run build",
+			"variants":
+			[
+				{
+					"env":
+					{
+						"NODE_ENV": "development"
+					},
+					"name": "Build (DEV)",
+					"shell_cmd": "run build | strip-ansi",
+					"working_dir": "${project_path}"
+				},
+				{
+					"env":
+					{
+						"NODE_ENV": "production"
+					},
+					"name": "Build (PROD)",
+					"shell_cmd": "run build | strip-ansi",
+					"working_dir": "${project_path}"
+				},
+				{
+					"env":
+					{
+						"NODE_ENV": "development"
+					},
+					"name": "Run (DEV)",
+					"shell_cmd": "run start | strip-ansi",
+					"working_dir": "${project_path}"
+				},
+				{
+					"env":
+					{
+						"NODE_ENV": "production"
+					},
+					"name": "Run (PROD)",
+					"shell_cmd": "run start | strip-ansi",
+					"working_dir": "${project_path}"
+				}
+			]
+		}
+	],
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				".DS_Store",
+				"*.sublime-*"
+			],
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"tab_size": 3,
+		"translate_tabs_to_spaces": false
+	}
+}

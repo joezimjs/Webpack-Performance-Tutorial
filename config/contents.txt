@@ -1,0 +1,35 @@
+"var __vueify_style_dispose__ = require(\"vueify/lib/insert-css\").insert(\".formatting {\
+    font-weight: bold;\
+    color: purple;\
+}\")
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, \"__esModule\", {
+    value: true
+});
+exports.default = {
+    props: {
+        place: {
+            type: String,
+            default: 'universe'
+        }
+    }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === \"function\"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error(\"[vueify] functional components are not supported and should be defined in plain js files using render functions.\")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',{class:_vm.$style.formatting},[_vm._v(\"Hello \"+_vm._s(_vm.place))])}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require(\"vue-hot-reload-api\")
+  hotAPI.install(require(\"vue\"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  module.hot.dispose(__vueify_style_dispose__)
+  if (!module.hot.data) {
+    hotAPI.createRecord(\"data-v-134c29b8\", __vue__options__)
+  } else {
+    hotAPI.reload(\"data-v-134c29b8\", __vue__options__)
+  }
+})()}"
