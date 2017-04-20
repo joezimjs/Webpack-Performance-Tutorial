@@ -54,7 +54,6 @@ let config = {
 		new CleanWebpackPlugin(['dist'], { root: process.cwd() }),
 		new HtmlWebpackPlugin({ template: 'src/index.html' }),
 	],
-	devtool: false && 'cheap-module-eval-source-map',
 	devServer: {
 		contentBase: 'dist',
 		port: 8080,
