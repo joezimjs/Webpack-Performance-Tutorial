@@ -10,8 +10,8 @@ let config = {
 	entry: { main: './src/main.js' },
 	output: {
 		path: path.resolve(process.cwd(), 'dist'),
-		filename: 'app-[name]-[chunkhash:8].js',
-		chunkFilename: 'app-[name]-[chunkhash:8].js',
+		filename: 'app-[name].js',
+		chunkFilename: 'app-[name].js',
 		publicPath: '/'
 	},
 	module: {
@@ -41,7 +41,7 @@ let config = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: '[name]-[hash:8].[ext]',
+							name: '[name].[ext]',
 							publicPath: '/',
 							outputPath: 'images/'
 						}
