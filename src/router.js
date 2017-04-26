@@ -22,9 +22,9 @@ export default new VueRouter({
 		{
 			path: '/wines/:id',
 			component: Wine,
-			props: route => {
-				return { wine: store.getters['wines/getById'](route.params.id) }
-			}
+			props: route => ({
+				wine: store.getters['wines/getById'](route.params.id)
+			})
 		}
 	]
 })
