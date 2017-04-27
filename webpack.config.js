@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const MinifierPlugin = require('babili-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
@@ -60,5 +61,8 @@ let config = {
 		historyApiFallback: true
 	}
 }
+
+if (ENV === 'production')
+	config.plugins.push(new MinifierPlugin(null, {comments: false}))
 
 module.exports = config
