@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MinifierPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() || (process.env.NODE_ENV = 'development')
@@ -60,5 +61,8 @@ let config = {
 		historyApiFallback: true
 	}
 }
+
+if (ENV === 'production')
+	config.plugins.push(new MinifierPlugin({comments: false}))
 
 module.exports = config
